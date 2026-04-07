@@ -156,12 +156,23 @@
 # p quo_rem
 # p "商=#{quo_rem[0]}, 余り=#{quo_rem[1]}"
 
-# numbers = [1,2,3,4]
+#  numbers = [1,2,3,4]
 # sum = 0
-# numbers.each do
-#   sum += 1
+# numbers.each do |n|
+#   sum += n
 # end
 # p sum
+
+#  sum = 0
+#  numbers.each do
+#     sum += 1
+#  end
+#  p sum
+
+# sentence = ['ruby','java','python']
+# up_sentence = []
+# sentence.map { |n| up_sentence << n.upcase }
+# p up_sentence
 
 # class User
 # end
@@ -189,3 +200,32 @@
 
 # a = Array.new(10){ |n| n % 3 + 1 }
 # p a
+
+# p (1..5).to_a
+
+# numbers = []
+
+# (1..10).step(2) { |n| numbers << n }
+
+# p numbers
+
+# p 'ruby'.chars
+
+# p Array.new(10) { |n| n % 3 + 1 }
+
+# a = Array.new(5, 'default')
+# p a
+# str = a[0]
+# p str.upcase!
+# p a
+
+
+# b = Array.new(5) { 'default' }
+# p b
+# str = b[0]
+# p str.upcase!
+# p b
+
+# fruits = ['apple', 'orange', 'melon']
+
+# p fruits.each
