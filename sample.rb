@@ -229,3 +229,65 @@
 # fruits = ['apple', 'orange', 'melon']
 
 # p fruits.each
+
+##### 番号指定パラメーター ######
+
+# puts "\n 番号指定パラメーターを使わない場合"
+# p ['1', '20', '300'].map { |s| s.rjust(3, '0') }
+
+# puts "\n 番号指定パラメーターを使う場合"
+# p ['1', '20', '300'].map { _1.rjust(3, '0') }
+
+# dimensions = [
+#     [10, 20],
+#     [30, 40],
+#     [50, 60],
+# ]
+# dimensions.each { p _1}
+
+# puts "\n 入れ子構造になるとエラーになる"
+# sum = 0
+# [[1, 2, 3],[4, 5, 6]].each do
+#     _1.each do
+#         sum += _1
+#     end
+# end
+
+# puts "\n エラーにならない"
+# sum = 0
+# [[1, 2, 3],[4, 5, 6]].each do |v|
+#     v.each do
+#         sum += _1
+#     end
+# end
+# p sum
+
+# puts "\n ブロックパラメータと併用するとエラーになる"
+# ['1', '20', '300'].map {|s| _1.rjust(3, '0') }
+
+##### while 文 #####
+
+# a = [ ]
+
+# begin
+#     a << 1
+# end while false
+
+# p a
+
+##### 再帰呼び出し #####
+
+# def factorial (n)
+#     n > 0 ? n * factorial(n - 1) : 1
+# end
+
+##### ハッシュ #####
+
+# currencies = { 'japan' => 'yen', 'us' => 'dollar', 'india' => 'rupee' }
+
+# currencies.each do |n|
+#     key = n[0]
+#     value = n[1]
+#     puts "#{key} : #{value}"
+# end
+
