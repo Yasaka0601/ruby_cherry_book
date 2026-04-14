@@ -301,13 +301,23 @@
 
 # p text.scan /\d\d-\d\d\d\d-\d\d\d\d/
 
+# text = <<-TEXT
+# クープバゲットのパンは美味しかった。
+# 今日はクープ バゲットさんに行きました。
+# クープ　バゲットのパンは最高。
+# ジャムおじさんのパン、ジャムが入ってた。
+# また行きたいです。クープ・バゲット。
+# クープ・バケットのパン、売り切れだった（><）
+# TEXT
+
+# p text.split(/\n/).grep(/クープ.?バ[ゲケ]ット/)
 text = <<-TEXT
-クープバゲットのパンは美味しかった。
-今日はクープ バゲットさんに行きました。
-クープ　バゲットのパンは最高。
-ジャムおじさんのパン、ジャムが入ってた。
-また行きたいです。クープ・バゲット。
-クープ・バケットのパン、売り切れだった（><）
+<select name="game_console">
+<option value="wii_u">Wii U</option>
+<option value="ps4">プレステ4</option>
+<option value="gb">ゲームボーイ</option>
+</select>
 TEXT
 
-p text.split(/\n/).grep(/クープ.?バ[ゲケ]ット/)
+p text.scan /<option value="([a-z0-9_]+)">(.+)<\/option>/
+
