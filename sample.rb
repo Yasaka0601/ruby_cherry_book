@@ -311,13 +311,25 @@
 # TEXT
 
 # p text.split(/\n/).grep(/クープ.?バ[ゲケ]ット/)
-text = <<-TEXT
+# text = <<-TEXT
+# <select name="game_console">
+# <option value="wii_u">Wii U</option>
+# <option value="ps4">プレステ4</option>
+# <option value="gb">ゲームボーイ</option>
+# </select>
+# TEXT
+
+# p text.scan /<option value="([a-z0-9_]+)">(.+)<\/option>/
+
+html = <<-HTML
 <select name="game_console">
-<option value="wii_u">Wii U</option>
+<option value="none"></option>
+<option value="wii_u" selected>Wii U</option>
 <option value="ps4">プレステ4</option>
 <option value="gb">ゲームボーイ</option>
 </select>
-TEXT
+HTML
 
-p text.scan /<option value="([a-z0-9_]+)">(.+)<\/option>/
+replaced = html.gsub(/<option value="(\w+)"(?: selected)?>(.*)<\/option>/, '\1,\2')
 
+puts replaced
