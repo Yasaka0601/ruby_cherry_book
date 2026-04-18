@@ -321,15 +321,61 @@
 
 # p text.scan /<option value="([a-z0-9_]+)">(.+)<\/option>/
 
-html = <<-HTML
-<select name="game_console">
-<option value="none"></option>
-<option value="wii_u" selected>Wii U</option>
-<option value="ps4">プレステ4</option>
-<option value="gb">ゲームボーイ</option>
-</select>
-HTML
+# html = <<-HTML
+# <select name="game_console">
+# <option value="none"></option>
+# <option value="wii_u" selected>Wii U</option>
+# <option value="ps4">プレステ4</option>
+# <option value="gb">ゲームボーイ</option>
+# </select>
+# HTML
 
-replaced = html.gsub(/<option value="(\w+)"(?: selected)?>(.*)<\/option>/, '\1,\2')
+# replaced = html.gsub(/<option value="(\w+)"(?: selected)?>(.*)<\/option>/, '\1,\2')
 
-puts replaced
+# puts replaced
+
+# text = <<-TEXT
+# def hello(name)
+#   puts "Hello, \#{name}!"
+# end
+
+# hello('Alice')
+     
+# hello('Bob')
+	
+# hello('Carol')
+# TEXT
+
+# puts text.gsub(/^[ \t]+$/,'')
+
+#### gsub メソッドはマッチした部分を全て置換する。gsub(検索する文字 , 置換する文字)
+
+# text = <<-TEXT
+# {
+#   japan:	'yen',
+#   america:'dollar',
+#   italy:     'euro'
+# }
+# TEXT
+
+# puts text.gsub(/:\s*/,': ')
+
+# text = <<-TEXT
+# name,email
+# alice,alice@example.com
+# bob,bob@example.com
+# TEXT
+
+# puts text.gsub(/','/, \t)
+
+text = <<-TEXT
+Feb 14 07:33:02 app/web.1:  Completed 302 Found ...
+Feb 14 07:36:46 heroku/api:  Starting process ...
+Feb 14 07:36:50 heroku/scheduler.7625:  Starting ...
+Feb 14 07:36:50 heroku/scheduler.7625:  State ...
+Feb 14 07:36:54 heroku/router:  at=info method=...
+Feb 14 07:36:54 app/web.1:  Started HEAD "/" ...
+Feb 14 07:36:54 app/web.1:  Completed 200 ...
+TEXT
+
+p text.scan(/^.+heroku\/(?:api|scheduler).+$/)
