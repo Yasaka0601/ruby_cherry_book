@@ -386,8 +386,18 @@
 # TEXT
 # puts text.scan(/(?<=filename=)[^;]+/)
 
-text = <<-TEXT
-John:guitar, George:guitar, Paul:bass, Ringo:drum
-Freddie:vocal, Brian:guitar, John:bass, Roger:drum
-TEXT
-p text.scan(/\w+(?=:bass)/)
+# text = <<-TEXT
+# John:guitar, George:guitar, Paul:bass, Ringo:drum
+# Freddie:vocal, Brian:guitar, John:bass, Roger:drum
+# TEXT
+# p text.scan(/\w+(?=:bass)/)
+
+# if '123-4567' =~ /\d{3}-\d{4}/
+#     puts 'マッチしました'
+# else
+#     puts 'マッチしませんでした'
+# end
+
+text = '私の誕生日は1993年6月1日です'
+m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
+p m
