@@ -398,6 +398,6 @@
 #     puts 'マッチしませんでした'
 # end
 
-text = '私の誕生日は1993年6月1日です'
-m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
-p m
+# text = '私の誕生日は1993年6月1日です'
+# m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
+# p m

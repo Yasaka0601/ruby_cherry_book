@@ -1,6 +1,8 @@
 class Gate
-  STATIONES = [:umeda, :juso, :mikuni]
+  # 定数。:umeda という記法はシンボル（オブジェクト同じで高速のやつ）
+  STATIONS = [:umeda, :juso, :mikuni]
   FARES = [160, 190]
+
   def initialize(name)
     @name = name
   end
@@ -14,10 +16,14 @@ class Gate
     fare <= ticket.fare
   end
 
+private
+
   def calc_fare(ticket)
-    from = STATIONES.index(ticket.stamped_at)
-    to = STATIONES.index(@name)
+    # indexメソッドは配列の中から、引数に合致する要素の添え字を取得する
+    from = STATIONS.index(ticket.stamped_at)
+    to = STATIONS.index(@name)
     distance = to - from
+    # 配列は oオリジンなので　-1 をする
     FARES[distance - 1]
   end
 end
