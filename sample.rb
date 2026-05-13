@@ -401,3 +401,22 @@
 # text = '私の誕生日は1993年6月1日です'
 # m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
 # p m
+
+class Foo
+  # 注：このputsはクラス定義の読み込み時に呼び出される
+  puts "クラス構文の直下のself: #{self}"
+
+  def self.bar
+    puts "クラスメソッド内のself: #{self}"
+  end
+
+  def baz
+    puts "インスタンスメソッド内のself: #{self}"
+  end
+end
+#=> クラス構文の直下のself: Foo
+
+Foo.bar #=> クラスメソッド内のself: Foo
+
+foo = Foo.new
+foo.baz #=> インスタンスメソッド内のself: #<Foo:0x000000012da3e2f0>
