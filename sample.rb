@@ -421,12 +421,24 @@
 # foo = Foo.new
 # foo.baz #=> インスタンスメソッド内のself: #<Foo:0x000000012da3e2f0>
 
-puts "Start."
+# puts "Start."
 
-begin
-  1 + "10"
-rescue
-  puts "例外処理が発生したが、このまま続行する"
+# begin
+#   1 + "10"
+# rescue
+#   puts "例外処理が発生したが、このまま続行する"
+# end
+
+# puts "END"
+
+country = 'india'
+case country
+in 'japan' # value型
+  'こんにちは'
+in 'us' # value型
+  'Hello'
+in 'italy' # value型
+  'Ciao'
+in obj ##### これだけvariable型 #####
+  "Unknown: #{obj}"
 end
-
-puts "END"
